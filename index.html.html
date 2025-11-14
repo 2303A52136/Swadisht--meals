@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swadisht Meals — Home-style Tiffins</title>
+  <meta name="description" content="Daily home-cooked tiffins and meals — Warangal, Nashik. Daily menus, prices, contact & order via WhatsApp." />
+  <style>
+    :root{--accent:#d9534f;--accent-dark:#b43a36;--muted:#666;--card:#fff;--bg:#f6f6f6}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#222}
+    header{background:linear-gradient(90deg,#fff 0%, #fff0 100%); padding:28px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:58px; height:58px; border-radius:10px; background:linear-gradient(135deg,var(--accent),#ff9a76); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:20px; box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    h1{margin:0; font-size:20px}
+    .tag{color:var(--muted); font-size:13px}
+    main{max-width:980px; margin:18px auto; padding:18px}
+    .controls{display:flex; gap:12px; flex-wrap:wrap; margin:12px 0}
+    .card{background:var(--card); border-radius:12px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .location{display:flex; gap:8px; align-items:center}
+    select,input[type=search]{padding:10px 12px; border-radius:8px; border:1px solid #e6e6e6}
+    .grid{display:grid; grid-template-columns:1fr 320px; gap:18px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+    .menu-list{display:flex; flex-direction:column; gap:12px}
+    .menu-day{display:flex; gap:12px; align-items:flex-start}
+    .menu-day .thumb{width:86px; height:86px; background:#fafafa; border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:600}
+    .menu-day h3{margin:0 0 4px 0}
+    .price{font-weight:700}
+    .rupee::before{content:"₹ "; font-weight:400}
+    .order-btn{display:inline-block; background:var(--accent); color:white; padding:10px 14px; border-radius:8px; text-decoration:none}
+    .order-btn:hover{background:var(--accent-dark)}
+    .contact-list{display:flex; flex-direction:column; gap:8px}
+    footer{max-width:980px; margin:18px auto; padding:18px; color:var(--muted); font-size:13px}
+    .notice{background:linear-gradient(90deg,#fff,#fff); padding:12px; border-radius:10px;}
+    .pill{background:#fff7f6; color:var(--accent-dark); padding:6px 10px; border-radius:999px; font-weight:600}
+    .map{height:180px; border-radius:8px; background:linear-gradient(180deg,#fff,#f3f3f3); display:flex; align-items:center; justify-content:center; color:var(--muted)}
+    .tagline{color:var(--muted); font-size:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">SM</div>
+      <div>
+        <h1>Swadisht Meals</h1>
+        <div class="tag">Home-style tiffins — Warangal • Nashik • Nearby areas</div>
+      </div>
+    </div>
+    <div class="location card">
+      <label for="loc">Serving:</label>
+      <select id="loc" aria-label="Choose location">
+        <option value="warangal">Warangal (Telangana)</option>
+        <option value="nashik">Nashik (Maharashtra)</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+        <div>
+          <h2 style="margin:0">Today's Menus</h2>
+          <div class="tagline">Choose your town to see the local menu. Weekly subscriptions & daily tiffins available.</div>
+        </div>
+        <div>
+          <a class="pill">Fresh every day • ₹80 - ₹180</a>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search dish (e.g., biryani, sambar, misal)" />
+        <button class="order-btn" onclick="openWhatsApp()">Order via WhatsApp</button>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div id="menu" class="menu-list">
+            <!-- JS will inject menu cards here -->
+          </div>
+        </div>
+
+        <aside>
+          <div class="card contact-card">
+            <h3>Contact & Orders</h3>
+            <div class="contact-list">
+              <div><strong>WhatsApp:</strong> <a href="#" id="wa1">+91 90000 00001</a></div>
+              <div><strong>Phone:</strong> <a href="tel:+919000000002">+91 90000 00002</a></div>
+              <div><strong>Email:</strong> <a href="mailto:orders@swadishtmeals.example">orders@swadishtmeals.example</a></div>
+              <div><strong>Timings:</strong> 7:00 AM — 10:30 PM</div>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="card">
+            <h4>How to order</h4>
+            <ol style="padding-left:18px;margin:6px 0 0 0;color:var(--muted)">
+              <li>Choose location (Warangal/Nashik)</li>
+              <li>Pick a day's tiffin or weekly plan</li>
+              <li>Click "Order via WhatsApp" and send your address</li>
+            </ol>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="card">
+            <h4>Delivery areas</h4>
+            <div class="map">Select a location to view menu variants</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section style="margin-top:12px; display:flex; gap:12px; flex-wrap:wrap">
+      <div class="card" style="flex:1">
+        <h4>Pricing & Plans</h4>
+        <p class="tag" style="margin:6px 0">Daily tiffin (veg) starting at <span class="rupee price">80</span>. Non-veg & special thalis available.</p>
+        <ul style="margin:6px 0 0 18px; color:var(--muted)">
+          <li>Daily tiffin: ₹80 — ₹120</li>
+          <li>Thali (full meal): ₹140 — ₹180</li>
+          <li>Weekly subscription discount: 5% — 12%</li>
+        </ul>
+      </div>
+
+      <div class="card" style="width:280px">
+        <h4>Safety & Quality</h4>
+        <p class="tag">Cooked daily at home kitchens. Contactless delivery, reheating tips included.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width:980px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; align-items:center">
+      <div>© Swadisht Meals — Local tiffins, made with love. <span style="color:var(--muted)">Built for small vendors.</span></div>
+      <div style="text-align:right">Hosted on GitHub Pages • Simple single-file site</div>
+    </div>
+  </footer>
+
+  <script>
+    const menus = {
+      warangal: [
+        {day:'Monday', title:'Pulihora + Kara Tintululu (dal) + Cabbage Fry', price:85},
+        {day:'Tuesday', title:'Kodi Kura (chicken curry) + Rice + Curd', price:160},
+        {day:'Wednesday', title:'Gutti Vankaya + Sambar + Rice', price:95},
+        {day:'Thursday', title:'Pesarattu + Upma', price:90},
+        {day:'Friday', title:'Fish Curry + Rice + Salad', price:170}
+      ],
+      nashik: [
+        {day:'Monday', title:'Poha + Kanda Bhaji + Chai (breakfast tiffin)', price:70},
+        {day:'Tuesday', title:'Varan Bhaat + Bhaji + Papad', price:80},
+        {day:'Wednesday', title:'Misal Pav + Salad', price:120},
+        {day:'Thursday', title:'Sabudana Khichdi (special)', price:110},
+        {day:'Friday', title:'Thali: Chapati + Dal + Seasonal Sabzi', price:150}
+      ]
+    };
+
+    const locEl = document.getElementById('loc');
+    const menuEl = document.getElementById('menu');
+    const searchEl = document.getElementById('search');
+    const wa1 = document.getElementById('wa1');
+
+    function renderMenu(){
+      const loc = locEl.value;
+      const list = menus[loc] || [];
+      const q = searchEl.value.trim().toLowerCase();
+      menuEl.innerHTML = '';
+      for(const item of list){
+        if(q && !(item.title.toLowerCase().includes(q) || item.day.toLowerCase().includes(q))) continue;
+        const div = document.createElement('div');
+        div.className = 'menu-day card';
+        div.innerHTML = `
+          <div class="thumb">${item.day.slice(0,3)}</div>
+          <div style="flex:1">
+            <h3>${item.title}</h3>
+            <div style="color:var(--muted); margin-bottom:8px">${item.day} — Home-style fresh meal</div>
+            <div style="display:flex; gap:8px; align-items:center">
+              <div class="price rupee">${item.price}</div>
+              <a class="order-btn" href="#" onclick='order("${loc}", "${item.title}", ${item.price})'>Order</a>
+            </div>
+          </div>
+        `;
+        menuEl.appendChild(div);
+      }
+      // update whatsapp link display
+      wa1.href = 'https://wa.me/91' + '9000000001';
+      wa1.textContent = '+91 90000 00001';
+    }
+
+    function order(loc, item, price){
+      const message = encodeURIComponent(`Hi Swadisht Meals, I want to order: ${item} (₹${price}) for delivery in ${loc}. My name: \nAddress: \nPreferred time:`);
+      const wa = 'https://wa.me/919000000001?text=' + message;
+      window.open(wa, '_blank');
+    }
+
+    function openWhatsApp(){
+      const wa = 'https://wa.me/919000000001?text=' + encodeURIComponent('Hi, I want to order tiffin. Please share today\'s menu and subscription options.');
+      window.open(wa,'_blank');
+    }
+
+    locEl.addEventListener('change', renderMenu);
+    searchEl.addEventListener('input', renderMenu);
+
+    // initial render
+    renderMenu();
+  </script>
+</body>
+</html>
